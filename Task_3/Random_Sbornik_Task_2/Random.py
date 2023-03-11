@@ -24,7 +24,7 @@ def lolProhibitThat(array1,array2):
 
     x = 0
 
-    while x < len(array2):
+    while x < len(array1):
         if array1[x] in array2:
             array1.remove(array1[x])
         x = x + 1
