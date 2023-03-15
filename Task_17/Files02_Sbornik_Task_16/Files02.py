@@ -15,12 +15,12 @@ while x <= 300:
     x += 1
     time.sleep(0.01)
 
-file = open('tablitsa.csv', 'w+')
+file = open('rows_300.csv', 'w+')
 emae = csv.writer(file,delimiter=';')
 emae.writerows(spisok)
 file.close()
 
-file = open('tablitsa.csv','r')
+file = open('rows_300.csv','r')
 emae = csv.reader(file,delimiter=';')
 for row in emae:
     print(row)
