@@ -2,6 +2,7 @@ import telebot
 from telebot import types
 
 bot = telebot.TeleBot('5690186434:AAHFqfEJWB_flLapePC9Exc8910fF3h2fFI')
+bot = telebot.TeleBot('placeforyourtoken')
 
 days = ['Понедельник','Вторник','Среда','Четверг','Пятница','Суббота','Воскресенье']
 week = []
