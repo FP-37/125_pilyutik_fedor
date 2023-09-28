@@ -1,0 +1,20 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+<title>Добавить фрукты</title>
+{% endblock %}
+
+{% block content %}
+<section class="usualbox">
+  <h1 class="maintext">Фрукты. Добавляем.</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.title }}
+    <br>
+    {{ form.task }}
+    <br>
+    <button type="submit" id="fruitbutton">Добавить</button>
+    <span>{{ error }}</span>
+  </form>
+</section>
+{% endblock %}

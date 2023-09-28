@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/stylesheet.css'%}"/>
+</head>
+<body id="page">
+<header id="hdr">
+    <table id="hat">
+        <tr>
+            <td id="logo"><h2>Рынок!!!</h2></td>
+            <td id="space"></td>
+            <td class="alittlebox"><a href="{% url 'home' %}" class="naviglinks">Главная</a></td>
+            <td class="alittlebox"><a href="{% url 'about_us' %}" class="naviglinks">Про нас</a></td>
+            <td class="alittlebox"><a href="{% url 'add_fruits' %}" class="naviglinks">Добавить свои фрукты</a></td>
+        </tr>
+    </table>
+</header>
+<section>
+    <title>{% block title %} {% endblock %}</title>
+</section>
+<section>
+    {% block content %} {% endblock %}
+</section>
+<footer>
+    <section id="forcustomers">
+        <h2 class="bottomtext">Покупателям</h2>
+        <ol>
+            <p class="bottomtext">Как сделать заказ</p>
+            <p class="bottomtext">Способ оплаты</p>
+            <p class="bottomtext">Доставка</p>
+        </ol>
+    </section>
+    <p align="center" class="bottomtext"><b>Copyright &copy Fedor Pilyutik</b></p>
+</footer>
+</body>
+</html>

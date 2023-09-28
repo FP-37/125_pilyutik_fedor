@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <section class="usualbox">
+        <h1 class="maintext">Главная страница</h1>
+        <h4 class="maintext">Ассортимент</h4>
+    </section>
+    {% if tasks %}
+        {% for el in tasks %}
+        <div class="fruit">
+            <h3 class="fruittext">{{ el.title }}</h3>
+            <p class="fruittext">{{ el.task}}</p>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p class="maintext">Пока что тут нет фруктов:)</p>
+    {% endif %}
+{% endblock %}
