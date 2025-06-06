@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--    настроили по ВНЕШНЕМУ ФАЙЛУ-->
+    <context:property-placeholder location="user.properties"/>
+
+    <bean id="headerAboutUs" class="com.example.demo.AboutUs">
+    </bean>
+
+    <bean id="headerHomePage"
+          class="com.example.demo.HomePage">
+    </bean>
+
+    <bean id="headerIndieGame" class="com.example.demo.IndieGamesPage">
+    </bean>
+
+    <!--    настройли по ВНЕШНЕЙ ССЫЛКЕ-->
+<!--     настроили аругменты конструктора WORK-->
+<!--    <bean id = "user"-->
+<!--          class="com.example.demo.User">-->
+<!--        <constructor-arg ref="headerAboutUs"/>-->
+<!--        <property name="timeReading" value="6"/>-->
+<!--    </bean>-->
+
+<!--    настройка по конструктору-->
+    <bean id="user1" class="com.example.demo.User"
+          scope="singleton"
+          init-method="testInitMethod"
+          destroy-method="testDestroyMethod">
+        <constructor-arg ref="headerHomePage" />
+    </bean>
+
+    <!--    настроили по ВНЕШНЕМУ ФАЙЛУ
+    настроили аргументы конструктора, SETTER-->
+    <bean id="user"
+          class="com.example.demo.User"
+          scope="prototype"
+          init-method="testInitMethod"
+          destroy-method="testDestroyMethod">
+        <constructor-arg ref="headerAboutUs"/>
+        <property name="timeReading" value="${user.timeReading}"/>
+        <property name="nickname" value="${user.nickname}"/>
+    </bean>
+
+    <bean id="user2"
+          class="com.example.demo.User"
+          scope="singleton"
+          init-method="testInitMethod"
+          destroy-method="testDestroyMethod">
+        <constructor-arg ref="headerIndieGame"/>
+        <property name="timeReading" value="6"/>
+        <property name="nickname" value="NI_tyan"/>
+    </bean>
+
+</beans>
